@@ -1,0 +1,21 @@
+$fa-font-path: '/bower_components/fontawesome/fonts';
+@import 'fontawesome/scss/font-awesome';
+
+@import 'variables';
+
+@import 'foundation/scss/foundation';
+
+@import 'cibc/sub-nav';
+
+//
+// SHAME
+//
+.full-bleed {
+  background-color: green;
+  margin-bottom: $column-gutter;
+
+  &>.row>.columns>.panel,
+  &>.row>.column>.panel {
+    margin-bottom: 0;
+  }
+}

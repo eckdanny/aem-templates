@@ -1,0 +1,50 @@
+---
+component: login-form
+---
+<form>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Card Number:
+        <input
+          type="text"
+          pattern="[0-9]{13,16}"
+          maxlength="16"
+          placeholder="111222333444"
+        />
+      </label>
+    </div>
+    <div class="large-12 columns">
+      <label>
+        <input
+          type="checkbox"
+        />
+        Remember my card number
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Password:
+        <input
+          type="password"
+        />
+      </label>
+    </div>
+    <div class="large-12 columns">
+      <label>
+        <a href="#">Forgot your password?</a>
+        <br><br>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <button class="columns small-6 button small secondary">Register</button>
+    <button class="columns small-6 button small">Sign On</button>
+  </div>
+  <div class="row">
+    <ul class="columns no-bullet">
+      <li><a href="#">Security Guaranteed</a></li>
+      <li><a href="#">Electronic Access Agreement</a></li>
+    </ul>
+  </div>
+</form>

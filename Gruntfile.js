@@ -33,6 +33,10 @@ module.exports = function(grunt) {
         files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
         tasks: ['assemble']
       },
+      sass: {
+        files: ['<%= config.src %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['sass:dist']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -41,7 +45,8 @@ module.exports = function(grunt) {
           '<%= config.dist %>/{,*/}*.html',
           '<%= config.dist %>/assets/{,*/}*.css',
           '<%= config.dist %>/assets/{,*/}*.js',
-          '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= config.dist %>/styles/{,*/}*.css'
         ]
       }
     },
@@ -57,6 +62,7 @@ module.exports = function(grunt) {
         options: {
           open: true,
           base: [
+            'bower_components',
             '<%= config.dist %>'
           ]
         }
@@ -68,7 +74,8 @@ module.exports = function(grunt) {
         options: {
           flatten: true,
           assets: '<%= config.dist %>/assets',
-          layout: '<%= config.src %>/templates/layouts/default.hbs',
+          layout: 'default.hbs',
+          layoutdir: '<%= config.src %>/templates/layouts',
           data: '<%= config.src %>/data/*.{json,yml}',
           partials: '<%= config.src %>/templates/partials/*.hbs',
           plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap'],
@@ -80,17 +87,27 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      bootstrap: {
+      bower: {
         expand: true,
-        cwd: 'bower_components/bootstrap/dist/',
+        cwd: 'bower_components',
         src: '**',
-        dest: '<%= config.dist %>/assets/'
+        dest: '<%= config.dist%>/bower_components'
+      }
+    },
+
+    sass: {
+      options: {
+        sourceMap: true,
+        includePaths: ['bower_components']
       },
-      theme: {
-        expand: true,
-        cwd: 'src/assets/',
-        src: '**',
-        dest: '<%= config.dist %>/assets/css/'
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.src %>/assets/styles',
+          src: ['*.{scss,sass}'],
+          dest: '<%= config.dist %>/assets/css',
+          ext: '.css'
+        }]
       }
     },
 
@@ -110,6 +127,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean',
+    'sass:dist',
     'copy',
     'assemble'
   ]);

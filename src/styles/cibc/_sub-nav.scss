@@ -1,0 +1,27 @@
+.cibc-sub-nav {
+  @include sub-nav();
+
+  dt,dd,li {
+    float: none;
+    display: inline-block;
+    margin-left: 0;
+
+    a {
+      text-transform: uppercase;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.active a {
+      color: $sub-nav-font-color;
+      background: none;
+
+      &:hover {
+        background: none;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -2,7 +2,9 @@
   "name": "cibc-templates",
   "version": "0.1.0",
   "dependencies": {
-    "bootstrap": "~3.2.0"
+    "foundation": "~5.5.2",
+    "slick-carousel": "~1.5.5",
+    "fontawesome": "~4.3.0"
   },
   "private": true
 }
