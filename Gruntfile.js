@@ -31,11 +31,15 @@ module.exports = function(grunt) {
     watch: {
       assemble: {
         files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
-        tasks: ['assemble']
+        tasks: ['clean', 'assemble']
       },
       sass: {
-        files: ['<%= config.src %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.src %>/assets/styles/{,*/}*.{scss,sass}'],
         tasks: ['sass:dist']
+      },
+      copy: {
+        files: ['<%= config.src %>/assets/{images,scripts}/*.*'],
+        tasks: ['copy:assets']
       },
       livereload: {
         options: {
@@ -56,7 +60,8 @@ module.exports = function(grunt) {
         port: 9000,
         livereload: 35729,
         // change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost'
+        // hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       livereload: {
         options: {
@@ -92,12 +97,18 @@ module.exports = function(grunt) {
         cwd: 'bower_components',
         src: '**',
         dest: '<%= config.dist%>/bower_components'
+      },
+      assets: {
+        expand: true,
+        cwd: '<%= config.src %>/assets',
+        src: ['**', '!styles/**'],
+        dest: '<%= config.dist %>/assets'
       }
     },
 
     sass: {
       options: {
-        sourceMap: true,
+        sourceMap: true, // <== seg faults (sometimes)
         includePaths: ['bower_components']
       },
       dist: {

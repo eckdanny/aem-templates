@@ -1,0 +1,58 @@
+//
+// Feature Banners
+//
+// @todo What does this do?
+@mixin fbImgContainerPosn($direction, $amount: $panel-padding) {
+  position: relative;
+  #{$direction}: -$amount;
+}
+
+.feature-banner {
+
+  @include panel();
+
+  // The image container
+  & > .row > .column:first-child {
+    display: table;
+  }
+
+  .fb-img-container {
+
+    @extend .small-only-text-center;
+
+    height: 100%;
+    width: 100%;
+    display: table-cell;
+
+    // Default Alignments
+    vertical-align: middle;
+    text-align: center !important;
+
+    @media #{$medium-up} {
+
+      // Placement of image within the image container
+      &.fb-img-top { vertical-align: top; }
+      &.fb-img-right { text-align: right !important; }
+      &.fb-img-bottom { vertical-align: bottom; }
+      &.fb-img-left { text-align: left !important; }
+
+      // Placement (as above) PLUS nudges for edge-hugging
+      &.fb-img-abs-top {
+        @include fbImgContainerPosn(top);
+        vertical-align: top;
+      }
+      &.fb-img-abs-right {
+        @include fbImgContainerPosn(right);
+        text-align: right !important;
+      }
+      &.fb-img-abs-bottom {
+        @include fbImgContainerPosn(bottom);
+        vertical-align: bottom;
+      }
+      &.fb-img-abs-left {
+        @include fbImgContainerPosn(left);
+        text-align: left !important;
+      }
+    }
+  }
+}

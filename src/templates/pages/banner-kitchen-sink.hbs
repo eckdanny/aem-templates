@@ -1,0 +1,1355 @@
+---
+layout: child.hbs
+published: true
+todo:
+ - RDS
+ - Reactive Images
+ - Retina
+---
+
+{{!-- {{> ex-section }} --}}
+
+<!-- about this page... -->
+<div class="row">
+  <h2>Feature Banners</h2>
+  <p>The <tt>feature banner</tt> component is overloaded IMO, but let us define as follows:</p>
+  <ul>
+    <li>a container</li>
+    <li>topical callout</li>
+    <li>may or may not contain accompanying media assets (video link, image) Foreground and Background</li>
+    <li>see Bryan's draft <tt>CIBC_Banner_Explanation.pdf</tt> for more specification</li>
+  </ul>
+  <p>
+    The <tt>feature banner</tt> component is composed (at minimum) of the following:
+  </p>
+</div> <!-- /about -->
+
+<!-- BASIC ALIGNMENT -->
+<div class="row">
+  <h3>Basic Alignments</h3>
+</div>
+
+<!-- basic right -->
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-basic-right"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-basic-right"
+        >
+          <div
+            class="
+              fb-img-container
+            "
+          >
+            <img src="assets/images/banner-everydayPlus-new-en.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-basic-right"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Foreground image on Right</h3>
+            <p>
+              The <tt>foreground</tt> image is <em>pushed</em> to the right-hand-side in larger viewports, and stacks (_before_ the content area) in small viewports.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- basic left -->
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-basic-left"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4"
+          data-equalizer-watch="example-basic-left"
+        >
+          <div
+            class="
+              fb-img-container
+            "
+          >
+            <img src="assets/images/banner-everydayPlus-new-en.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-basic-left"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Foreground image on Left</h3>
+            <p>
+              The <tt>foreground</tt> image is <em>pushed</em> to the left-hand-side in larger viewports, and stacks (_before_ the content area) in small viewports.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- basic center -->
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-basic-center"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-12"
+          data-equalizer-watch="example-basic-center"
+        >
+          <div
+            class="
+              fb-img-container
+            "
+          >
+            <img src="assets/images/banner-everydayPlus-new-en.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-12
+            text-center
+            small-only-text-center
+          "
+          data-equalizer-watch="example-basic-center"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Centered Foreground image</h3>
+            <p>
+              The <tt>foreground</tt> image stacks in all viewports.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- EDGE HUGGING -->
+<div class="row">
+  <h3>Edge-Hugging</h3>
+  <p>
+    The default padding in the <tt>image container</tt> creates visual space between the edge of the <tt>feature banner</tt>. This can be overridden using the following classes (which are composable):
+  </p>
+  <ul>
+    <li><tt>abs-right</tt></li>
+    <li><tt>abs-bottom</tt></li>
+    <li><tt>abs-left</tt></li>
+    <li><tt>abs-top</tt></li>
+  </ul>
+  <p>This visual treatment is required for cases in which the <tt>foreground image</tt> must appear to <em>emerge-from</em> or <em>intereact-with</em> the visual boundary layer of the <tt>feature banner</tt>.</p>
+  <blockquote>DO NOT mix opposing directional classes (eg; <tt>-top</tt> and <tt>-bottom</tt>. The net effect is not predictable as it is last-rule wins and source ordering of style rules may change during compilation.</blockquote>
+</div>
+
+<!-- hug top -->
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-hug-top"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-hug-top"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-abs-top
+            "
+          >
+            <img
+              src="assets/images/bounce_top.png"
+
+              data-default-x=123
+              data-default-y=asdf
+              data-default-w=asdf
+              data-default-h=asdf
+
+
+              data-large-src="alksdjfasdf"
+              data-large-x=1234
+              data-large-y=12123
+              data-large-w=1231
+              data-large-h=123
+            >
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-hug-top"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Hug the TOP side</h3>
+            <p>
+              The image component should hug the top of this feature banner.
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <ul class="hide-for-small-only">
+              <li>A list</li>
+              <li>to add</li>
+              <li>space to</li>
+              <li>see vertical</li>
+              <li>alignment</li>
+              <li>behavior</li>
+            </ul>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- hug right -->
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-hug-right"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-hug-right"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-abs-right
+            "
+          >
+            <img src="assets/images/bounce_right.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-hug-right"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Hug the Right-Hand side</h3>
+            <p>
+              The image component should hug the right-hand side of this feature banner.
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <ul class="hide-for-small-only">
+              <li>A list</li>
+              <li>to add</li>
+              <li>space to</li>
+              <li>see vertical</li>
+              <li>alignment</li>
+              <li>behavior</li>
+            </ul>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- hug bottom -->
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-hug-bottom"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-hug-bottom"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-abs-bottom
+            "
+          >
+            <img src="assets/images/bounce_bottom.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-hug-bottom"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Hug the Bottom</h3>
+            <p>
+              The image component should hug the bottom of this feature banner.
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <ul class="hide-for-small-only">
+              <li>A list</li>
+              <li>to add</li>
+              <li>space to</li>
+              <li>see vertical</li>
+              <li>alignment</li>
+              <li>behavior</li>
+            </ul>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- hug left -->
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-hug-left"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4"
+          data-equalizer-watch="example-hug-left"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-abs-left
+            "
+          >
+            <img src="assets/images/bounce_left.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-hug-left"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Hug the Left-Hand side</h3>
+            <p>
+              The image component should hug the left-hand side of this feature banner.
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <ul class="hide-for-small-only">
+              <li>A list</li>
+              <li>to add</li>
+              <li>space to</li>
+              <li>see vertical</li>
+              <li>alignment</li>
+              <li>behavior</li>
+            </ul>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <h3>Aligning Foreground Assets</h3>
+    <pre>
+  +---+---+---+
+  | 1 | 2 | 3 |
+  +---+---+---+
+  | 4 | 5 | 6 |
+  +---+---+---+
+  | 7 | 8 | 9 |
+  +---+---+---+
+    </pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-align-default"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-align-default"
+        >
+          <div
+            class="fb-img-container"
+            style="background-color: yellow;"
+          >
+            <img src="assets/images/sign_small.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-align-default"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Default Placement</h3>
+            <p>
+              See the 3x3 grid above for placement options
+            </p>
+            <p>
+              The <tt>image container</tt> is yellow to make it easier see where the image is placed.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-align-1"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-align-1"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-left
+              fb-img-top
+            "
+            style="background-color: yellow;"
+          >
+            <img src="assets/images/sign_small.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-align-1"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Position: #1</h3>
+            <p>
+              See the 3x3 grid above for placement options
+            </p>
+            <p>
+              The <tt>image container</tt> is yellow to make it easier see where the image is placed.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-align-2"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-align-2"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-top
+            "
+            style="background-color: yellow;"
+          >
+            <img src="assets/images/sign_small.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-align-2"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Position: #2</h3>
+            <p>
+              See the 3x3 grid above for placement options
+            </p>
+            <p>
+              The <tt>image container</tt> is yellow to make it easier see where the image is placed.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-align-3"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-align-3"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-top
+              fb-img-right
+            "
+            style="background-color: yellow;"
+          >
+            <img src="assets/images/sign_small.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-align-3"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Position: #3</h3>
+            <p>
+              See the 3x3 grid above for placement options
+            </p>
+            <p>
+              The <tt>image container</tt> is yellow to make it easier see where the image is placed.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-align-6"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-align-6"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-right
+            "
+            style="background-color: yellow;"
+          >
+            <img src="assets/images/sign_small.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-align-6"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Position: #6</h3>
+            <p>
+              See the 3x3 grid above for placement options
+            </p>
+            <p>
+              The <tt>image container</tt> is yellow to make it easier see where the image is placed.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-align-9"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-align-9"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-right
+              fb-img-bottom
+            "
+            style="background-color: yellow;"
+          >
+            <img src="assets/images/sign_small.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-align-9"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Position: #9</h3>
+            <p>
+              See the 3x3 grid above for placement options
+            </p>
+            <p>
+              The <tt>image container</tt> is yellow to make it easier see where the image is placed.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- SUB FULL WIDTH -->
+<div class="row">
+  <div class="column">
+    <h3>&lt; Full Width</h3>
+  </div>
+</div>
+
+<!-- col8-4 -->
+<div
+  class="row"
+  data-equalizer="example-8-4-wrapper"
+  data-equalizer-mq="medium-up"
+>
+  <div class="column medium-8">
+    <div
+      class="feature-banner"
+      data-equalizer-watch="example-8-4-wrapper"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-col-8-4"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-col-8-4"
+        >
+          <div
+            class="
+              fb-img-container
+            "
+          >
+            <img src="assets/images/banner-everydayPlus-new-en.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-col-8-4"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Hug the TOP side</h3>
+            <p>
+              The image component should hug the top of this feature banner.
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+  <div class="column medium-4">
+    <div
+      class="panel"
+      data-equalizer-watch="example-8-4-wrapper"
+    >
+      <h3>Hello World!</h3>
+    </div>
+  </div>
+</div>
+
+<!-- col6-6 -->
+<div
+  class="row"
+  data-equalizer="example-6-6-wrapper"
+  data-equalizer-mq="medium-up"
+>
+  <div class="column medium-6">
+    <div
+      class="feature-banner"
+      data-equalizer-watch="example-6-6-wrapper"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-col-6-6"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-col-6-6"
+        >
+          <div
+            class="
+              fb-img-container
+            "
+          >
+            <img src="assets/images/banner-everydayPlus-new-en.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-col-6-6"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Hug the TOP side</h3>
+            <p>
+              The image component should hug the top of this feature banner.
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+  <div class="column medium-6">
+    <div
+      class="feature-banner"
+      data-equalizer-watch="example-6-6-wrapper"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-col-6-6-right"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-col-6-6-right"
+        >
+          <div
+            class="
+              fb-img-container
+            "
+          >
+            <img src="assets/images/banner-everydayPlus-new-en.png">
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-col-6-6-right"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>Hug the TOP side</h3>
+            <h3>Hug the TOP side</h3>
+            <h3>Hug the TOP side</h3>
+            <h3>Hug the TOP side</h3>
+            <h3>Hug the TOP side</h3>
+            <h3>Hug the TOP side</h3>
+            <p>
+              The image component should hug the top of this feature banner.
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<!-- RDS -->
+<div class="row">
+  <h3>Dynamic Injection (RDS)</h3>
+  <div class="column medium-6">
+
+    <form>
+      <div class="row">
+        <div class="small-8 columns">
+          <div class="row">
+            <div class="small-3 columns">
+              <label
+                for="rds"
+                class="right inline"
+              >RDS:</label>
+            </div>
+            <div class="small-9 columns">
+              <input
+                value="1.99"
+                type="text"
+                min="0.5"
+                max="2.5"
+                step="0.01"
+                style="
+                  display: inline-block;
+                  width: 75px;
+                "
+              >
+              <button
+                class="button tiny"
+                type="button"
+                id="rds-update"
+              >Update RDS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div
+      class="feature-banner"
+    >
+
+      <div
+        class="row"
+        data-equalizer="example-basic-right"
+        data-equalizer-mq="medium-up"
+      >
+
+        <!-- image-component -->
+        <!-- push-* needed when image not on left -->
+        <div
+          class="column medium-4 push-8"
+          data-equalizer-watch="example-basic-right"
+        >
+          <div
+            class="
+              fb-img-container
+              fb-img-abs-bottom
+            "
+          >
+            <div style="position: relative;">
+              <img
+                src="assets/images/sign.png"
+                data-rds="[533, 30, 797, 252]"
+              >
+              <div
+                style="
+                  position: absolute;
+                  left: 64%;
+                  top: 3%;
+                  width: 33%;
+                  height: 41%;
+                  text-align: center;
+                "
+              >
+                <div
+                  id="rds-field"
+                  style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 180%;
+                    display: none;
+                  "
+                  {{!-- lookat font-size in viewportUnits or fitText.js fallback --}}
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /image-component -->
+
+        <!-- content-component -->
+        <div
+          class="
+            column
+            medium-8
+            pull-4
+            text-left
+            small-only-text-center
+          "
+          data-equalizer-watch="example-basic-right"
+        >
+
+          <!-- Parsys content here -->
+          <div class="content">
+            <h3>An RDS Feature Banner</h3>
+            <p>
+              The value (displayed over the sign) is dynamic. The sizing must be consistent across all instances of the snippet of dynamic text. (This is a required mandate for compliance.)
+            </p>
+            <p>
+              This is working if the impact *splat* of the ball is snug to the <tt>feature banner</tt> border in <em>non-mobile</em> viewports.
+            </p>
+            <div class="cta">
+              <button class="small-expand margin-bottom-none">
+                Learn More
+              </button>
+            </div>
+          </div> <!-- /parsys -->
+
+        </div> <!-- /content-component -->
+      </div>
+    </div> <!-- /feature-banner -->
+  </div>
+</div>
+
+<script type="text/javascript">/*
+<div class="row">
+  <div class="column">
+    <div class="panel">
+      <div
+        class="row"
+        data-equalizer="ex1-1"
+        data-equalizer-mq="medium-up"
+      >
+
+        <div
+          class="column medium-4 push-8 text-center"
+          data-equalizer-watch="ex1-1"
+          style="
+            display: table;
+          "
+        >
+          <div
+            style="
+              display: table-cell;
+              vertical-align: middle;
+            "
+          >
+            <img src="assets/images/banner-everydayPlus-new-en.png">
+            <div
+              class="rds"
+              style="
+                background-color: cyan;
+                position: absolute;
+                top: 25%;
+                left: 25%;
+                width: 25%;
+                height: 25%;
+              "
+            >
+              1.29%
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="column medium-8 pull-4 text-left small-only-text-center"
+          data-equalizer-watch="ex1-1"
+        >
+
+          <h3>15,000 Aventura Points Welcome Bonus after first purchase</h3>
+          <div class="content">
+          <p>
+            Get Premium travel benefits with the CIBC Aventura Visa Infinite Card
+          </p>
+          </div>
+          <div class="cta">
+            <button class="small-expand no-bottom-margin">
+              Learn More
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+*/</script>
+
+{{> footer-scripts }}
+
+<script type="text/javascript">
+  (function() { 'use strict';
+
+    // On DOM Ready
+    $(function() {
+
+      // Register Event Handlers
+      $(window)
+        .on('resize', onResizeThrottled)
+        .trigger('resize');
+
+      // $('[data-rds]').rds({
+      //   propertyName: "a custom value"
+      // });
+
+      $('#rds-update')
+        .click(function(e) {
+          $('#rds-field')
+            .text( $(this).prev().val() )
+            .show();
+        });
+
+    });
+
+    var onResize = function(e) {
+      console.log('I was resized');
+      if (Foundation.utils.is_small_only()) {
+        console.log('to a small viewport');
+      }
+    };
+    var onResizeThrottled = Foundation.utils.throttle(onResize, 500);
+
+  })();
+</script>
